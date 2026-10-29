@@ -5,7 +5,7 @@ const post = require("../api/post");
 const token = require("../utils/token");
 const utils = require("../utils/utils");
 const validator = require("../validate/post");
-const { parseArgs, buildHelp } = require("../utils/args");
+const { parseArgs, buildHelp, parseDecimalInteger } = require("../utils/args");
 const {
   emitError,
   emitEmpty,
@@ -27,7 +27,7 @@ const SCHEMA = {
       key: "limit",
       type: "number",
       default: 10,
-      transform: (v) => Number(v),
+      transform: parseDecimalInteger,
       desc: "获取的作品数量, 0-10000",
     },
   },

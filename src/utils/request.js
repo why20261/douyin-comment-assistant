@@ -41,7 +41,7 @@ async function request(options, data = null) {
                 jsonBody.errcode === 403
               ) {
                 const e = new AuthError(
-                  "GUAIKEI_API_TOKEN 无效",
+                  "GUAIKEI_API_TOKEN 无效, 请检查环境变量 或 通过 www.guaikei.com 联系客服获取解决方案",
                 );
                 e.noRetry = true;
                 reject(e);
@@ -59,7 +59,7 @@ async function request(options, data = null) {
             }
           } else if (res.statusCode === 401 || res.statusCode === 403) {
             const e = new AuthError(
-              "GUAIKEI_API_TOKEN 无效",
+              "GUAIKEI_API_TOKEN 无效, 请检查环境变量 或 通过 www.guaikei.com 联系客服获取解决方案",
             );
             e.noRetry = true;
             reject(e);
